@@ -3,3 +3,7 @@ streamlit
 time
 pandas
 toml
+pygments
+mdurl
+markdown-it-py
+rich
