@@ -1,15 +1,12 @@
-import os
 import openai
 import streamlit as st 
 import time
-from openai import OpenAI
 # from IPython.display import Image, display
 import pandas as pd
-import toml
 
 #my-api-key-here
-openai.api_key = os.environ["OPENAI_API_KEY"]
-client = OpenAI() 
+openai.api_key = st.secrets["OPENAI_API_KEY"]
+client = openai() 
 
 #st.set_page_config(layout="wide", initial_sidebar_state="expanded")
 #st.sidebar.image("Logo.jpg", use_column_width=True)
@@ -62,7 +59,7 @@ with st.form(key = "chat"):
     datasets = st.text_input("List any datasets you might consider including:")
     submitted = st.form_submit_button("Submit")
 
-    prompt = f"For a student solving {problem} who is interested in experimenting with {technologies}, reading {articles}, and plans to use {datasets}"
+    prompt = f"For a community member solving {problem} who is interested in experimenting with {technologies}, reading {articles}, and plans to use {datasets}"
     # response = 
 
     with st.spinner("Here we go!"):
