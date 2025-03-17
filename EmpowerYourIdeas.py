@@ -2,7 +2,6 @@ import os
 import openai
 import streamlit as st 
 import time
-# from IPython.display import Image, display
 from openai import OpenAI
 import pandas as pd
 import toml
@@ -18,7 +17,7 @@ col1, col2 = st.columns([1, 4])
 with col1:
     st.image("Logo.jpg", width=125)
 with col2:
-    st.header("Empower Your Ideas", divider="blue")
+    st.header("Empower Your Ideas", divider="green")
 
 # create a wrapper function
 def get_completion(prompt, model="gpt-3.5-turbo"):
@@ -35,18 +34,6 @@ def get_completion(prompt, model="gpt-3.5-turbo"):
         ]
     )
     return completion.choices[0].message.content
-
-def get_image(response):
-    response = client.images.generate(
-        model="dall-e-3",
-        prompt=major,
-        size="1024x1024",
-        quality="standard",
-        n=1,
-    )
-    
-    return response.data[0].url
-
 
 # create our streamlit app
 st.caption("Welcome to Empower Your Ideas, the ultimate platform for students to brainstorm and develop projects that contribute to a better world. \
@@ -76,6 +63,3 @@ with st.form(key = "chat"):
                    facing the City of San Jose, you can make a real impact on global issues and contribute to \
                    a more sustainable future. If you would like to explore more project ideas, feel free to \
                    rerun this application. Thank you for using Empower Your Ideas, and best of luck with your projects!")
-
-
-
