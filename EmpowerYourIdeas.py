@@ -1,6 +1,6 @@
 import os
+import openai
 import streamlit as st 
-# import requests
 import time
 from openai import OpenAI
 # from IPython.display import Image, display
@@ -8,7 +8,7 @@ import pandas as pd
 import toml
 
 #my-api-key-here
-OpenAI.api_key = os.environ["OPENAI_API_KEY"]
+openai.api_key = os.environ["OPENAI_API_KEY"]
 client = OpenAI() 
 
 #st.set_page_config(layout="wide", initial_sidebar_state="expanded")
